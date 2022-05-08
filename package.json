@@ -6,6 +6,29 @@
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.2.0",
-    "eslint-plugin-promise": "^6.0.0"
-  }
+    "eslint-plugin-promise": "^6.0.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "tsconfig.json": "^1.0.11"
+  },
+  "name": "befit",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node server/src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuanBMartins/Api-Be-Fit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuanBMartins/Api-Be-Fit/issues"
+  },
+  "homepage": "https://github.com/LuanBMartins/Api-Be-Fit#readme"
 }
