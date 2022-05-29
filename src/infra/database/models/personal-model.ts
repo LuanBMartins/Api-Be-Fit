@@ -12,7 +12,7 @@ class Personal extends Model< InferAttributes<Personal>, InferCreationAttributes
 Personal.init(
   {
     id: {
-      type: DataTypes.INTEGER.UNSIGNED,
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
     },
@@ -35,7 +35,7 @@ Personal.init(
     }
   },
   {
-    tableName: 'users',
+    tableName: 'personal',
     timestamps: false,
     sequelize // passing the `sequelize` instance is required
   }

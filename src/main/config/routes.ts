@@ -5,5 +5,5 @@ const router = Router()
 
 export default (app: Express): void => {
   app.use('/api', router)
-  fg.sync('**/src/main/routes/**routes.ts').forEach(file => require(`../../../${file}`)(router))
+  fg.sync('**/src/main/routes/**routes.ts').forEach((file: string) => require(`../../../${file.replace('.ts', '')}`)(router))
 }

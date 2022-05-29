@@ -1,9 +1,9 @@
 
-import PersonalRepository from 'src/interface/personal-model'
-import Encrypter from 'src/interface/encrypter'
-import ErrorRes from 'src/presentation/utils/error'
-import Personal from 'src/infra/database/models/personal-model'
-import TokenJWT from 'src/interface/jwt'
+import PersonalRepository from '../../interface/personal-model'
+import Encrypter from '../../interface/encrypter'
+import ErrorRes from '../../presentation/utils/error'
+import Personal from '../../infra/database/models/personal-model'
+import TokenJWT from '../../interface/jwt'
 
 export default class AuthUseCase {
   private personalRepository

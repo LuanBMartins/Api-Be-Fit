@@ -8,7 +8,7 @@ export default class ExpressRouterAdapter {
       }
 
       const httpResponse = await router.route(httpRequest)
-      res.status(httpResponse.statusCode).json(httpResponse.body)
+      res.status(httpResponse.status).json(httpResponse.body)
     }
   }
 }
