@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import ExpressRouterAdapter from '../adapter/express-route-adapter'
+import LoginRouterComposer from '../composer/login-composer'
 
-export default (router: Router) => {
-  router.post('/login', ExpressRouterAdapter.adapt())
+module.exports = (router: Router) => {
+  router.post('/login', ExpressRouterAdapter.adapt(LoginRouterComposer.composer()))
 }
