@@ -8,8 +8,6 @@ const sequelize = new Sequelize(process.env.DB_NAME || '', process.env.DB_USER |
   dialect: 'postgres'
 })
 
-console.log(process.env.DB_NAME)
-
 sequelize.authenticate()
   .then(() => console.log('Connection has been established successfully.'))
 
