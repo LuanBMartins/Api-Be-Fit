@@ -1,6 +1,7 @@
 import CreateHttpRequest from '../../../interface/gym-student/gym-student-create-httpRequest'
 import gymStudentUseCaseInterface from '../../../interface/gym-student/gym-student-usecase'
 import response from '../../utils/responseBody'
+
 import Authenticate from '../../utils/Authenticate'
 
 export default class GymStudentCreateRoute extends Authenticate {

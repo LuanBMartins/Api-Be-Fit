@@ -12,6 +12,7 @@ export default class GymStudentRepository {
     })
   }
 
+<<<<<<< HEAD
   list (id: number) {
     return GymStudent.findOne({
       where: { id },
@@ -28,6 +29,17 @@ export default class GymStudentRepository {
   update (id: number, data: any) {
     return GymStudent.update(data, {
       where: { id }
+=======
+  delete (email: string) {
+    return GymStudent.destroy({
+      where: { email }
+    })
+  }
+
+  update (email: string, data: any) {
+    return GymStudent.update(data, {
+      where: { email }
+>>>>>>> 40bf0ddaf424faebf47b12a7462ebcbe58abf71f
     })
   }
 }
