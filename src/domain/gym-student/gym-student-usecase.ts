@@ -66,7 +66,7 @@ export default class GymStudentUseCase {
     if (!id) {
       throw new ErrorRes(500, 'invalid field id!')
     }
-    return this.gymStudentRepository.load(id)
+    return this.gymStudentRepository.list(id)
   }
 
   /**

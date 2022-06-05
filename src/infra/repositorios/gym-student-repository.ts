@@ -5,7 +5,14 @@ export default class GymStudentRepository {
     return GymStudent.create(data)
   }
 
-  load (id: number) {
+  load (email: string) {
+    return GymStudent.findOne({
+      where: { email },
+      raw: true
+    })
+  }
+
+  list (id: number) {
     return GymStudent.findOne({
       where: { id },
       raw: true
