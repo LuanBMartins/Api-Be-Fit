@@ -76,14 +76,22 @@ export default class GymStudentUseCase {
    * @returns
    */
 
-  update (id: number, gymStudent: GymStudentModelInterface) {
+  async update (id: number, gymStudent: GymStudentModelInterface) {
     if (!id) {
       throw new ErrorRes(500, 'invalid field id!')
     }
-    if (!gymStudent) {
-      throw new ErrorRes(500, 'invalid fields!')
-    }
-    return this.gymStudentRepository.update(id, gymStudent)
+    // if (!gymStudent.name || !gymStudent.password) {
+    //   throw new ErrorRes(500, 'invalid fields!')
+    // }
+
+    const dataStudent = gymStudent.password
+      ? {
+          name: gymStudent.name,
+          password: await this.encrypter.hash(gymStudent.password)
+        }
+      : { name: gymStudent.name }
+
+    return this.gymStudentRepository.update(id, dataStudent)
   }
 
   /**
