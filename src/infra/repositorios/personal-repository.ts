@@ -13,4 +13,18 @@ export default class PersonalRepository {
     const result = await Personal.create(data)
     return result
   }
+
+  async update (id: string, data: any) {
+    const result = await Personal.findOne({
+      where: { id },
+      raw: true
+    })
+    console.log(result)
+    if (result) {
+      await Personal.update(data, { where: { id } })
+      return true
+    } else {
+      return false
+    }
+  }
 }
