@@ -5,22 +5,22 @@ export default class GymStudentRepository {
     return GymStudent.create(data)
   }
 
-  load (email: string) {
+  load (id: number) {
     return GymStudent.findOne({
-      where: { email },
+      where: { id },
       raw: true
     })
   }
 
-  delete (email: string) {
+  delete (id: number) {
     return GymStudent.destroy({
-      where: { email }
+      where: { id }
     })
   }
 
-  update (email: string, data: any) {
+  update (id: number, data: any) {
     return GymStudent.update(data, {
-      where: { email }
+      where: { id }
     })
   }
 }

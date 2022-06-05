@@ -58,44 +58,44 @@ export default class GymStudentUseCase {
 
   /**
    *
-   * @param email student email
+   * @param id student id
    * @returns boolean
    */
 
-  load (email: string) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
+  load (id: number) {
+    if (!id) {
+      throw new ErrorRes(500, 'invalid field id!')
     }
-    return this.gymStudentRepository.load(email)
+    return this.gymStudentRepository.load(id)
   }
 
   /**
    *
-   * @param email student email
+   * @param id student id
    * @param gymStudent gym student data
    * @returns
    */
 
-  update (email: string, gymStudent: GymStudentModelInterface) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
+  update (id: number, gymStudent: GymStudentModelInterface) {
+    if (!id) {
+      throw new ErrorRes(500, 'invalid field id!')
     }
     if (!gymStudent) {
-      throw new ErrorRes(500, 'invalid field email!')
+      throw new ErrorRes(500, 'invalid fields!')
     }
-    return this.gymStudentRepository.update(email, gymStudent)
+    return this.gymStudentRepository.update(id, gymStudent)
   }
 
   /**
    *
-   * @param email student email
+   * @param id student id
    * @returns
    */
 
-  delete (email: string) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
+  delete (id: number) {
+    if (!id) {
+      throw new ErrorRes(500, 'invalid field id!')
     }
-    return this.gymStudentRepository.delete(email)
+    return this.gymStudentRepository.delete(id)
   }
 }
