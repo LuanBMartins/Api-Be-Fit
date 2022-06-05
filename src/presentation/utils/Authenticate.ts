@@ -1,20 +1,28 @@
 import jwt from 'jsonwebtoken'
-import config from 'config'
+import dotenv from 'dotenv'
+import ErrorRes from './error'
+dotenv.config()
 
 /*
  * Authentication middleware
 */
 
 export default abstract class Authenticate {
-  public async authenticate (authorization: string): Promise<any> {
+  public async authenticate (authorization: string, user = ''): Promise<any> {
     try {
       if (!authorization) throw new Error('Token missing')
+      const decoded = jwt.verify(authorization, process.env.TOKEN || '')
 
-      const token = authorization.split(' ')[1]
-      const decoded = jwt.verify(token, config.get('key.jwt'))
+      if (typeof decoded !== 'string') {
+        if (decoded.useType !== (user || decoded.useType)) {
+          throw new ErrorRes(401, 'Unauthorized!')
+        }
+      } else {
+        throw new ErrorRes(401, 'Unauthorized!')
+      }
       return decoded
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      throw new ErrorRes(401, 'Unauthorized!')
     }
   }
 }
