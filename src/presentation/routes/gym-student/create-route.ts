@@ -11,8 +11,6 @@ export default class GymStudentCreateRoute {
   async route (httpRequest: CreateHttpRequest) {
     try {
       if (!httpRequest.body) {
-        console.log(response(400, 'invalid body!'))
-
         return response(400, 'invalid body!')
       }
       const userCreate = await this.gymStudentUseCase.create(httpRequest.body)
