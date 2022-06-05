@@ -58,7 +58,6 @@ export default class GymStudentUseCase {
 
   /**
    *
-<<<<<<< HEAD
    * @param id student id
    * @returns boolean
    */
@@ -68,31 +67,16 @@ export default class GymStudentUseCase {
       throw new ErrorRes(500, 'invalid field id!')
     }
     return this.gymStudentRepository.list(id)
-=======
-   * @param email student email
-   * @returns boolean
-   */
-
-  load (email: string) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
-    }
-    return this.gymStudentRepository.load(email)
->>>>>>> 40bf0ddaf424faebf47b12a7462ebcbe58abf71f
   }
 
   /**
    *
-<<<<<<< HEAD
+
    * @param id student id
-=======
-   * @param email student email
->>>>>>> 40bf0ddaf424faebf47b12a7462ebcbe58abf71f
    * @param gymStudent gym student data
    * @returns
    */
 
-<<<<<<< HEAD
   async update (id: number, gymStudent: GymStudentModelInterface) {
     if (!id) {
       throw new ErrorRes(500, 'invalid field id!')
@@ -109,21 +93,10 @@ export default class GymStudentUseCase {
       : { name: gymStudent.name }
 
     return this.gymStudentRepository.update(id, dataStudent)
-=======
-  update (email: string, gymStudent: GymStudentModelInterface) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
-    }
-    if (!gymStudent) {
-      throw new ErrorRes(500, 'invalid field email!')
-    }
-    return this.gymStudentRepository.update(email, gymStudent)
->>>>>>> 40bf0ddaf424faebf47b12a7462ebcbe58abf71f
   }
 
   /**
    *
-<<<<<<< HEAD
    * @param id student id
    * @returns
    */
@@ -133,16 +106,5 @@ export default class GymStudentUseCase {
       throw new ErrorRes(500, 'invalid field id!')
     }
     return this.gymStudentRepository.delete(id)
-=======
-   * @param email student email
-   * @returns
-   */
-
-  delete (email: string) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
-    }
-    return this.gymStudentRepository.delete(email)
->>>>>>> 40bf0ddaf424faebf47b12a7462ebcbe58abf71f
   }
 }
