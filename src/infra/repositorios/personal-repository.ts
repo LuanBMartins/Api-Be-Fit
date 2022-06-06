@@ -19,7 +19,6 @@ export default class PersonalRepository {
       where: { id },
       raw: true
     })
-    console.log(result)
     if (result) {
       await Personal.update(data, { where: { id } })
       return true
