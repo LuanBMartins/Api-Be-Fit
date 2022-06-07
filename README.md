@@ -3,15 +3,15 @@
 <h3> Exemplo de .env </h3>
 
 ```
-DB_HOST="host"
-DB_PORT="port"
-DB_NAME="database_name"
-DB_PASSWORD="database_pass"
-DB_USER="database_user"
 APP_PORT="express_port"
+PGUSER="database_user"
+PGPORT="port"
+PGPASSWORD="database_pass"
+PGHOST="host"
+PGDATABASE="database_name"
+DATABASE_URL="url"
 TOKEN="token"
 ```
-
 
 <h3> Postgres Docker </h3>
 
