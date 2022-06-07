@@ -46,7 +46,7 @@ npm start
 }
 ```
 
-<h3> [GET]Personal /api/personal/:email</h3>
+<h3> [GET]Personal /api/personal/load/:email</h3>
 
 ```
 Header: Authorization obrigatório
@@ -54,7 +54,7 @@ Params: email
 
 ```
 
-<h3> [PUT]Personal /api/personal/:id</h3>
+<h3> [PUT]Personal /api/personal/update/:id</h3>
 
 ```
 Header: Authorization obrigatório
