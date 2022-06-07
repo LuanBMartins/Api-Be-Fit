@@ -103,8 +103,15 @@ export default class GymStudentUseCase {
 
   delete (id: number) {
     if (!id) {
-      throw new ErrorRes(500, 'invalid field id!')
+      throw new ErrorRes(400, 'invalid field id!')
     }
     return this.gymStudentRepository.delete(id)
+  }
+
+  listStudentforPersonal (id: number) {
+    if (!id) {
+      throw new ErrorRes(400, 'invalid field id!')
+    }
+    return this.gymStudentRepository.listStudentsForPersonal(id)
   }
 }

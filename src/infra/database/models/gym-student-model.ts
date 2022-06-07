@@ -8,7 +8,7 @@ class gymStudent extends Model< InferAttributes<gymStudent>, InferCreationAttrib
   declare email: string
   declare password: string
   declare goals: string
-  declare PersonalId: HasManyAddAssociationMixin<Personal, number>
+  declare PersonalId: number
 }
 
 gymStudent.init(
@@ -34,6 +34,13 @@ gymStudent.init(
     goals: {
       type: DataTypes.TEXT,
       allowNull: false
+    },
+    PersonalId: {
+      type: DataTypes.INTEGER,
+      references: { model: 'personal', key: 'id' },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      allowNull: true
     }
   },
   {
@@ -42,10 +49,6 @@ gymStudent.init(
     sequelize // passing the `sequelize` instance is required
   }
 )
-
-Personal.hasMany(gymStudent)
-
-gymStudent.belongsTo(Personal)
 
 gymStudent.sync()
 

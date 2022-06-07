@@ -94,3 +94,10 @@ Header: Authorization obrigatório
     "id": "string"
 }
 ```
+
+<h3> GymStudent list for Personal /api/gymstudent/list/:id</h3>
+
+```
+Header: Authorization obrigatório
+
+```

@@ -30,4 +30,10 @@ export default class GymStudentRepository {
       where: { id }
     })
   }
+
+  async listStudentsForPersonal (id: number) {
+    return GymStudent.findAll({
+      where: { PersonalId: id }
+    })
+  }
 }
