@@ -46,11 +46,11 @@ npm start
 }
 ```
 
-<h3> [GET]Personal /api/personal/load/:email</h3>
+<h3> [GET]Personal /api/personal/list/:id</h3>
 
 ```
 Header: Authorization obrigatório
-Params: email
+Params: id
 
 ```
 
