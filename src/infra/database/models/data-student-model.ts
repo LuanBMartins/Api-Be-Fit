@@ -1,8 +1,7 @@
 import { Model, DataTypes, InferAttributes, InferCreationAttributes, CreationOptional, HasManyAddAssociationMixin } from 'sequelize'
 import sequelize from '../database'
-import GymStudent from './gym-student-model'
 
-class dataStudent extends Model< InferAttributes<dataStudent>, InferCreationAttributes<dataStudent>> {
+class DataStudent extends Model< InferAttributes<DataStudent>, InferCreationAttributes<DataStudent>> {
   declare id: CreationOptional<number>
   declare weight: number
   declare height: number
@@ -10,10 +9,10 @@ class dataStudent extends Model< InferAttributes<dataStudent>, InferCreationAttr
   declare legs: number
   declare waist: number
   declare chest: number
-  declare GymStudentId: HasManyAddAssociationMixin<GymStudent, number>
+  declare gymStudentId: number
 }
 
-dataStudent.init(
+DataStudent.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -21,28 +20,41 @@ dataStudent.init(
       primaryKey: true
     },
     weight: {
-      type: new DataTypes.FLOAT(),
-      allowNull: true
+      type: DataTypes.FLOAT(),
+      defaultValue: 0,
+      allowNull: false
     },
     height: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      defaultValue: 0,
+      allowNull: false
     },
     arms: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      defaultValue: 0,
+      allowNull: false
     },
     legs: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      defaultValue: 0,
+      allowNull: false
     },
     waist: {
       type: DataTypes.FLOAT,
-      allowNull: true
+      defaultValue: 0,
+      allowNull: false
     },
     chest: {
-      type: DataTypes.FLOAT,
-      allowNull: true
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: false
+    },
+    gymStudentId: {
+      type: DataTypes.INTEGER,
+      references: { model: 'gymStudent', key: 'id' },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+      allowNull: false
     }
   },
   {
@@ -52,10 +64,6 @@ dataStudent.init(
   }
 )
 
-GymStudent.hasOne(dataStudent)
+DataStudent.sync()
 
-dataStudent.belongsTo(GymStudent)
-
-dataStudent.sync()
-
-export default dataStudent
+export default DataStudent
