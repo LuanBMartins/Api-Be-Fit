@@ -14,11 +14,11 @@ export default class PersonalUseCase {
     this.encrypter = encrypter
   }
 
-  async load (email: string) {
-    if (!email) {
-      throw new ErrorRes(500, 'invalid field email!')
+  async load (id: string) {
+    if (!id) {
+      throw new ErrorRes(500, 'invalid field id!')
     }
-    return await this.personalRepository.load(email)
+    return await this.personalRepository.load(id)
   }
 
   /**
