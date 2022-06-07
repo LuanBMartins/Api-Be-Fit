@@ -18,16 +18,15 @@ export default class PersonalRoute extends Authenticate {
 
   async route (httpRequest: any) {
     try {
-      // const authenticate = await this.authenticate(httpRequest.headers.authorization)
-      // if (!authenticate) {
-      //   return {
-      //     status: 401,
-      //     body: 'Unauthorized'
-      //   }
-      // }
+      const authenticate = await this.authenticate(httpRequest.headers.authorization)
+      if (!authenticate) {
+        return {
+          status: 401,
+          body: 'Unauthorized'
+        }
+      }
 
       const personal = await this.personalUseCase.update(httpRequest.params.id, httpRequest.body)
-      console.log(personal)
       if (!personal) {
         return {
           status: 400,

@@ -16,7 +16,7 @@ export default class PersonalUseCase {
    * @returns Return
    */
 
-  async update (id: string, data: string) {
+  async update (id: number, data: object) {
     const result = await this.personalRepository.update(id, data)
     return result
   }

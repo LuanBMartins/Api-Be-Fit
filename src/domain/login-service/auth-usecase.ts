@@ -47,6 +47,8 @@ export default class AuthUseCase {
       throw new ErrorRes(401, 'Unauthorized')
     }
 
+    delete user.password
+
     return this.tokenGenerator.generate(user, useType)
   }
 }
