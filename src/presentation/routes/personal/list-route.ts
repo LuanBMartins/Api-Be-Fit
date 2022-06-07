@@ -1,4 +1,4 @@
-import loadHttpRequest from '../../../interface/personal/personal-create-httpRequest'
+import listHttpRequest from '../../../interface/personal/personal-create-httpRequest'
 import personalUseCaseInterface from '../../../interface/personal-usecase'
 import response from '../../utils/responseBody'
 import Authenticate from '../../utils/Authenticate'
@@ -10,7 +10,7 @@ export default class PersonalLoadRoute extends Authenticate {
     this.personalUseCase = personalUseCase
   }
 
-  async route (httpRequest: loadHttpRequest) {
+  async route (httpRequest: listHttpRequest) {
     try {
       if (!httpRequest.headers.authorization) {
         return response(401, 'Unauthorized!')
@@ -18,10 +18,10 @@ export default class PersonalLoadRoute extends Authenticate {
       const auth = await this.authenticate(httpRequest.headers.authorization)
       if (!auth) return response(401, 'Unauthorized!')
 
-      if (!httpRequest.params.email) {
-        return response(400, 'invalid email!')
+      if (!httpRequest.params.id) {
+        return response(400, 'invalid id!')
       }
-      const userLoad = await this.personalUseCase.load(httpRequest.params.email)
+      const userLoad = await this.personalUseCase.list(httpRequest.params.id)
       if (userLoad) {
         return response(200, userLoad)
       }
