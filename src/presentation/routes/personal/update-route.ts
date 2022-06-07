@@ -1,5 +1,5 @@
 // import { HttpRequest } from 'src/interface/login-httpRequest'
-import Authenticate from '../../../presentation/utils/Authenticate'
+import Authenticate from '../../utils/Authenticate'
 import PersonalCaseInterface from 'src/interface/personal-usecase'
 
 export default class PersonalRoute extends Authenticate {
