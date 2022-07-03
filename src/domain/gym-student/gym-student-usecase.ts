@@ -2,6 +2,9 @@ import GymStudentRepositoryInterface from '../../interface/gym-student/gym-stude
 import GymStudentModelInterface from '../../interface/gym-student/gym-student-model'
 import Encrypter from '../../interface/encrypter'
 import ErrorRes from '../../presentation/utils/error'
+import Mail from '../utils/mail'
+import TokenJWT from '../utils/token-jwt'
+import PasswordGenerator from '../utils/password-generator'
 
 export default class GymStudentUseCase {
   private gymStudentRepository
@@ -31,10 +34,6 @@ export default class GymStudentUseCase {
       {
         valid: gymStudent.goals,
         msg: 'Invalid field gymStudent.goals'
-      },
-      {
-        valid: gymStudent.password,
-        msg: 'Invalid field gymStudent.password'
       }
     ]
 
@@ -51,9 +50,28 @@ export default class GymStudentUseCase {
    */
 
   async create (gymStudent: GymStudentModelInterface) {
-    this.validStudentData(gymStudent)
-    gymStudent.password = await this.encrypter.hash(gymStudent.password)
-    return this.gymStudentRepository.create(gymStudent)
+    try {
+      this.validStudentData(gymStudent)
+      this.gymStudentRepository.create(gymStudent)
+      const emailConfirmationToken = new TokenJWT().generateConfirmationEmail(gymStudent.email)
+      const mailInfo = {
+        to: gymStudent.email,
+        subject: 'Email Confirmation',
+        text: `Please, click this link to confirm your email ${process.env.URL_API}/${emailConfirmationToken}`,
+        html: `<h1>Please, click this link to confirm your email </h1> <a href=${process.env.URL_API}/${emailConfirmationToken}>Confirmation link</a>`
+      }
+      const mail = await new Mail(mailInfo.to, mailInfo.subject, mailInfo.text, mailInfo.html).sendMail()
+
+      if (!mail) {
+        return false
+      }
+      return mail
+    } catch (error) {
+      console.log(error)
+      throw new Error(error)
+    }
+
+    // gymStudent.password = await this.encrypter.hash(gymStudent.password)
   }
 
   /**
@@ -113,5 +131,19 @@ export default class GymStudentUseCase {
       throw new ErrorRes(400, 'invalid field id!')
     }
     return this.gymStudentRepository.listStudentsForPersonal(id)
+  }
+
+  async emailConfirmation (email: string) {
+    const password = PasswordGenerator.generate()
+    const passwordEncrypted = await this.encrypter.hash(password)
+    const mailInfo = {
+      to: email,
+      subject: 'Confirmação de email',
+      text: `Essa é sua senha ${password}`,
+      html: `<h1>Essa é sua senha </h1> <h2><strong>${password}</strong></h2>`
+    }
+    await new Mail(mailInfo.to, mailInfo.subject, mailInfo.text, mailInfo.html).sendMail()
+
+    return this.gymStudentRepository.emailConfirmation(email, passwordEncrypted)
   }
 }

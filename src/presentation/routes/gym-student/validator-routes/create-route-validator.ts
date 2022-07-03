@@ -11,9 +11,9 @@ const schema = Joi.object({
     } else {
       return value
     }
-  }),
+  }).optional(),
   goals: Joi.string().min(10).max(50).required().regex(/^[a-zA-Z .!?"-]+$/).message('Special character not permitted in the goals'),
-  personalId: Joi.number().required()
+  PersonalId: Joi.number().required()
 })
 
 export default schema

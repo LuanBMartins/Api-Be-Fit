@@ -44,4 +44,10 @@ export default class GymStudentRepository {
       where: { PersonalId: id }
     })
   }
+
+  async emailConfirmation (email: string, password: string) {
+    return GymStudent.update({ confirmed: true, password }, {
+      where: { email }
+    })
+  }
 }
