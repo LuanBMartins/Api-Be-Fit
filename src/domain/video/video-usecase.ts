@@ -1,6 +1,7 @@
 import VideoRepositoryInterface from '../../interface/video/video-repository'
 import VideoModelInterface from '../../interface/video/video-model'
 import ErrorRes from '../../presentation/utils/error'
+import formParse from './form-req'
 
 export default class VideoUseCase {
   private videoRepositoryInterface
@@ -30,5 +31,11 @@ export default class VideoUseCase {
   async update (id: number, dataVideo: VideoModelInterface) {
     const result = await this.videoRepositoryInterface.update(id, dataVideo)
     return result
+  }
+
+  async upload (req: any) {
+    const awsUpload = await formParse(req)
+
+    return awsUpload
   }
 }
