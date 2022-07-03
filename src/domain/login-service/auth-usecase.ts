@@ -25,12 +25,6 @@ export default class AuthUseCase {
   }
 
   async autenticate (email: string, password: string, useType: string): Promise<PersonalRepository | {}> {
-    if (!email) {
-      throw new ErrorRes(400, 'Invalid Email!')
-    }
-    if (!password) {
-      throw new ErrorRes(400, 'Invalid Password!')
-    }
     if (!useType || (useType !== 'P' && useType !== 'G')) {
       throw new ErrorRes(400, 'Invalid User!')
     }
@@ -41,7 +35,6 @@ export default class AuthUseCase {
     if (user === null) { throw new ErrorRes(401, 'Unauthorized') }
 
     const authValid = await this.encrypter.compare(password, user?.password || '')
-    console.log('testee', authValid)
 
     if (!authValid) {
       throw new ErrorRes(401, 'Unauthorized')
