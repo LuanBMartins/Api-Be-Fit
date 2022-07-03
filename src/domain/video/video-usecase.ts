@@ -21,6 +21,13 @@ export default class VideoUseCase {
     return this.videoRepositoryInterface.list(category, id)
   }
 
+  async listAll (id: number) {
+    if (!id) {
+      throw new ErrorRes(400, 'invalid field category or Id!')
+    }
+    return this.videoRepositoryInterface.listAll(id)
+  }
+
   async delete (id: number) {
     if (!id) {
       throw new ErrorRes(400, 'invalid field id!')

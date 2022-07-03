@@ -5,6 +5,7 @@ import VideoUpdateRouterComposer from '../composer/video/video-update-composer'
 import VideoDeleteRouterComposer from '../composer/video/video-delete-composer'
 import VideoListRouterComposer from '../composer/video/video-list-composer'
 import PersonalUpdateRouterComposer from '../composer/video/video-upload-composer'
+import VideoListAllRouterComposer from '../composer/video/video-listAll-composer'
 
 module.exports = (router: Router) => {
   router.post('/video/upload/aws', ExpressRouterAdapter.adapt(PersonalUpdateRouterComposer.composer()))
@@ -12,4 +13,5 @@ module.exports = (router: Router) => {
   router.put('/video/update/:id', ExpressRouterAdapter.adapt(VideoUpdateRouterComposer.composer()))
   router.delete('/video/delete/:id', ExpressRouterAdapter.adapt(VideoDeleteRouterComposer.composer()))
   router.post('/video/list/', ExpressRouterAdapter.adapt(VideoListRouterComposer.composer()))
+  router.get('/video/list/:id', ExpressRouterAdapter.adapt(VideoListAllRouterComposer.composer()))
 }

@@ -163,9 +163,11 @@ Params: id
 }
 ```
 
-<h3> [PUT] video delete (table) api/video/delete/:id</h3>
+<h3> [DELETE] video delete (table) api/video/delete/:id</h3>
 
-<h3> [PUT] video list (table) api/video/list</h3>
+<h3> [GET] list all videos (table) api/video/list/:id</h3>
+
+<h3> [POST] video list (table) api/video/list</h3>
 
 <p> Body Obrigatório:
 

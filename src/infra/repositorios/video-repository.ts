@@ -12,6 +12,13 @@ export default class VideoRepository {
     })
   }
 
+  async listAll (id: number) {
+    return await Video.findAll({
+      where: { PersonalId: id },
+      raw: true
+    })
+  }
+
   async delete (id: number) {
     return await Video.destroy({
       where: { id }
