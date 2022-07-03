@@ -2,11 +2,10 @@ import Personal from '../database/models/personal-model'
 
 export default class PersonalRepository {
   async load (email: string) {
-    const result = await Personal.findOne({
+    return Personal.findOne({
       where: { email },
       raw: true
     })
-    return result
   }
 
   async list (id: number) {

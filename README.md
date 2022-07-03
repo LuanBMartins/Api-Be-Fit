@@ -124,3 +124,57 @@ Header: Authorization obrigatório
 Params: id
 
 ```
+
+
+<h2> Rotas para tratamento dos video</h2>
+
+
+<h3> [POST] video upload api/video/upload/aws</h3>
+
+```
+"Content-Type": "multipart/form-data"
+"body": file 
+"response": url-aws
+```
+
+<h3> [POST] video create (table) api/video/create</h3>
+
+<p> Body Obrigatório:
+
+```
+{
+    "category": "---",
+    "name": "---",
+    "score": "---" || NULL ,
+    "PersonalId": "1",
+    "url": "teste.aws"
+}
+```
+
+<h3> [PUT] video update (table) api/video/update/:id</h3>
+
+<p> Body Obrigatório:
+
+```
+{
+    "category": "---" || NULL,
+    "name": "---" || NULL,
+    "score": "---" || NULL ,
+}
+```
+
+<h3> [DELETE] video delete (table) api/video/delete/:id</h3>
+
+<h3> [GET] list all videos (table) api/video/list/:id</h3>
+
+<h3> [POST] video list (table) api/video/list</h3>
+
+<p> Body Obrigatório:
+
+```
+{
+    "category": "jobs",
+    "id": 1
+}
+```
+
