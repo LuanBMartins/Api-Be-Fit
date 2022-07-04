@@ -15,7 +15,7 @@ export default class Mail {
 
   public async sendMail () {
     const mailOptions = {
-      from: 'befit.apptech@gmail.com',
+      from: process.env.HOST_USER,
       to: this.to,
       subject: this.subject,
       text: this.text,
