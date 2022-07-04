@@ -1,12 +1,12 @@
 import { Model, DataTypes, InferAttributes, InferCreationAttributes, CreationOptional, HasManyAddAssociationMixin } from 'sequelize'
 import sequelize from '../database'
-import Personal from './personal-model'
 
 class gymStudent extends Model< InferAttributes<gymStudent>, InferCreationAttributes<gymStudent>> {
   declare id: CreationOptional<number>
   declare name: string
   declare email: string
   declare password: string
+  declare confirmed: boolean
   declare goals: string
   declare PersonalId: number
 }
@@ -29,7 +29,12 @@ gymStudent.init(
     },
     password: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: true
+    },
+    confirmed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     },
     goals: {
       type: DataTypes.TEXT,

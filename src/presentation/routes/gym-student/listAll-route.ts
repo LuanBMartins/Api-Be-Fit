@@ -17,9 +17,6 @@ export default class GymStudentLoadRoute extends Authenticate {
       }
       const auth = await this.authenticate(httpRequest.headers.authorization)
       if (!auth) return response(401, 'Unauthorized!')
-
-      console.log(httpRequest)
-
       if (!httpRequest.params.id) {
         return response(400, 'invalid id!')
       }

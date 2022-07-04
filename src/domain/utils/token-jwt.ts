@@ -9,4 +9,10 @@ export default class TokenJWT {
       expiresIn: '999d'
     })
   }
+
+  generateConfirmationEmail (email: string) {
+    return jwt.sign({ email }, process.env.TOKEN || '', {
+      expiresIn: '999d'
+    })
+  }
 }

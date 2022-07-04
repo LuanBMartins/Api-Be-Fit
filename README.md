@@ -11,6 +11,10 @@ PGHOST="host"
 PGDATABASE="database_name"
 DATABASE_URL="url"
 TOKEN="token"
+
+HOST_USER="email"
+HOST_PASS="pass"
+URL_API="url local"
 ```
 
 <h3> Postgres Docker </h3>
@@ -76,7 +80,6 @@ Header: Authorization obrigatório
 {
     "name": "string",
     "email": "string",
-    "password": "string",
     "goals": "string",
     "PersonalId": "string"
 }
@@ -125,15 +128,13 @@ Params: id
 
 ```
 
-
 <h2> Rotas para tratamento dos video</h2>
-
 
 <h3> [POST] video upload api/video/upload/aws</h3>
 
 ```
 "Content-Type": "multipart/form-data"
-"body": file 
+"body": file
 "response": url-aws
 ```
 
@@ -177,4 +178,3 @@ Params: id
     "id": 1
 }
 ```
-
