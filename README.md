@@ -11,7 +11,6 @@ PGHOST="host"
 PGDATABASE="database_name"
 DATABASE_URL="url"
 TOKEN="token"
-
 HOST_USER="email"
 HOST_PASS="pass"
 URL_API="url local"

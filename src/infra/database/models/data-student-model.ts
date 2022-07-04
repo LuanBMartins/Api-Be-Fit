@@ -45,7 +45,7 @@ DataStudent.init(
       allowNull: false
     },
     chest: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       defaultValue: 0,
       allowNull: false
     },
