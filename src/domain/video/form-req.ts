@@ -27,7 +27,7 @@ function formParse (req: any) {
       if (err) {
         return false
       }
-
+      console.log(files)
       const url = await uploadFile(files.filetoupload.originalFilename, files.filetoupload.filepath, '')
       if (url) {
         resolve(url)
