@@ -64,6 +64,4 @@ DataStudent.init(
   }
 )
 
-DataStudent.sync()
-
 export default DataStudent

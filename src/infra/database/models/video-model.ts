@@ -47,7 +47,4 @@ Video.init(
     sequelize // passing the `sequelize` instance is required
   }
 )
-
-Video.sync()
-
 export default Video

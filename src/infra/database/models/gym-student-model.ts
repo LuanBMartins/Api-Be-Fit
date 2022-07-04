@@ -54,7 +54,4 @@ gymStudent.init(
     sequelize // passing the `sequelize` instance is required
   }
 )
-
-gymStudent.sync()
-
 export default gymStudent
