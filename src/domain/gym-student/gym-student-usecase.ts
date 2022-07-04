@@ -52,20 +52,20 @@ export default class GymStudentUseCase {
   async create (gymStudent: GymStudentModelInterface) {
     try {
       this.validStudentData(gymStudent)
-      this.gymStudentRepository.create(gymStudent)
-      const emailConfirmationToken = new TokenJWT().generateConfirmationEmail(gymStudent.email)
-      const mailInfo = {
-        to: gymStudent.email,
-        subject: 'Email Confirmation',
-        text: `Please, click this link to confirm your email ${process.env.URL_API}/${emailConfirmationToken}`,
-        html: `<h1>Please, click this link to confirm your email </h1> <a href=${process.env.URL_API}/${emailConfirmationToken}>Confirmation link</a>`
-      }
-      const mail = await new Mail(mailInfo.to, mailInfo.subject, mailInfo.text, mailInfo.html).sendMail()
+      return this.gymStudentRepository.create(gymStudent)
+      // const emailConfirmationToken = new TokenJWT().generateConfirmationEmail(gymStudent.email)
+      // const mailInfo = {
+      //   to: gymStudent.email,
+      //   subject: 'Email Confirmation',
+      //   text: `Please, click this link to confirm your email ${process.env.URL_API}/${emailConfirmationToken}`,
+      //   html: `<h1>Please, click this link to confirm your email </h1> <a href=${process.env.URL_API}/${emailConfirmationToken}>Confirmation link</a>`
+      // }
+      // const mail = await new Mail(mailInfo.to, mailInfo.subject, mailInfo.text, mailInfo.html).sendMail()
 
-      if (!mail) {
-        return false
-      }
-      return mail
+      // if (!mail) {
+      //   return false
+      // }
+      // return mail
     } catch (error) {
       console.log(error)
       throw new Error(error)
