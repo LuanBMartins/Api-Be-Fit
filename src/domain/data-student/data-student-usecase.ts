@@ -16,8 +16,8 @@ export default class DataStudentUseCase {
     return this.dataStudentRepository.list(id)
   }
 
-  async update (id: number, dataStudent: DataStudentModelInterface) {
-    const result = await this.dataStudentRepository.update(id, dataStudent)
+  async create (dataStudent: DataStudentModelInterface) {
+    const result = await this.dataStudentRepository.create(dataStudent)
     return result
   }
 }

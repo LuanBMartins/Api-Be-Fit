@@ -1,4 +1,4 @@
-import UpdateHttpRequest from '../../../interface/data-student/data-student-create-httpRequest'
+import CreateHttpRequest from '../../../interface/data-student/data-student-create-httpRequest'
 import dataStudentInterface from '../../../interface/data-student/data-student-usecase'
 import response from '../../utils/responseBody'
 
@@ -11,16 +11,16 @@ export default class DataStudentCreateRoute extends Authenticate {
     this.dataStudentUseCase = dataStudentUseCase
   }
 
-  async route (httpRequest: UpdateHttpRequest) {
+  async route (httpRequest: CreateHttpRequest) {
     try {
       const auth = await this.authenticate(httpRequest.headers.authorization)
       if (!auth) return response(401, 'Unauthorized!')
 
-      if (!httpRequest.params.id) {
-        return response(400, 'Invalid id!')
+      if (!httpRequest.body) {
+        return response(400, 'Invalid body!')
       }
 
-      const dataList = await this.dataStudentUseCase.update(httpRequest.params.id, httpRequest.body)
+      const dataList = await this.dataStudentUseCase.create(httpRequest.body)
       if (dataList) {
         return response(200, dataList)
       }

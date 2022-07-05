@@ -8,16 +8,7 @@ export default class DataStudentRepository {
     })
   }
 
-  async update (id: number, data: any) {
-    const result = await DataStudent.findOne({
-      where: { gymStudentId: id },
-      raw: true
-    })
-    if (result) {
-      await DataStudent.update(data, { where: { gymStudentId: id } })
-      return true
-    } else {
-      return false
-    }
+  async create (data: any) {
+    return DataStudent.create(data)
   }
 }
