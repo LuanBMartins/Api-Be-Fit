@@ -196,3 +196,25 @@ Params: id
   "gymStudentId": "1"
 }
 ```
+
+<h2> Rotas para tratamento de progresso do aluno</h2>
+
+<h3> [GET]data student create (table) api/datastudent/create</h3>
+
+<p> Body:
+
+```
+{
+    weight: 0,
+    height: 0,
+    arms: 0,
+    legs: 0,
+    waist: 0,
+    chest: 0,
+    gymStudentId: id
+}
+```
+
+<h3> [GET]data student list (table) api/datastudent/list:id</h3>
+<p> params: id do aluno
+

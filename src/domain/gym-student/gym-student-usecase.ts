@@ -52,6 +52,7 @@ export default class GymStudentUseCase {
   async create (gymStudent: GymStudentModelInterface) {
     try {
       this.validStudentData(gymStudent)
+      gymStudent.password = await this.encrypter.hash(gymStudent.password)
       return this.gymStudentRepository.create(gymStudent)
       // const emailConfirmationToken = new TokenJWT().generateConfirmationEmail(gymStudent.email)
       // const mailInfo = {
