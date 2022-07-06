@@ -180,7 +180,7 @@ Params: id
 
 <h3> [POST]data student create (table) api/datastudent/create</h3>
 
-<p> Body Obrigatório:
+<p> Body:
 
 ```
 {
