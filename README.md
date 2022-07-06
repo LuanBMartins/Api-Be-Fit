@@ -178,7 +178,7 @@ Params: id
 }
 ```
 
-<h3> [POST]data student create (table) api/datastudent/create</h3>
+<h3> [GET]data student create (table) api/datastudent/create</h3>
 
 <p> Body:
 
@@ -193,3 +193,6 @@ Params: id
     gymStudentId: id
 }
 ```
+
+<h3> [POST]data student list (table) api/datastudent/list:id</h3>
+<p> params: id do aluno
