@@ -177,3 +177,19 @@ Params: id
     "id": 1
 }
 ```
+
+<h3> [POST]data student create (table) api/datastudent/create</h3>
+
+<p> Body Obrigatório:
+
+```
+{
+    weight: 0,
+    height: 0,
+    arms: 0,
+    legs: 0,
+    waist: 0,
+    chest: 0,
+    gymStudentId: id
+}
+```
