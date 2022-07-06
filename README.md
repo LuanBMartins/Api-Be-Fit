@@ -177,3 +177,22 @@ Params: id
     "id": 1
 }
 ```
+
+<h2> Rotas para tratamento dos treinos</h2>
+
+<h3> [DELETE] video delete (table) api/workout/delete/:id</h3>
+
+<h3> [GET] list all videos (table) api/workout/list/:id</h3>
+
+<h3> [POST] video list (table) api/workout/create</h3>
+
+<p> Body Obrigatório:
+
+```
+{
+  "category": "Ombro",
+  "day": "1",
+  "PersonalId": "1",
+  "gymStudentId": "1"
+}
+```
