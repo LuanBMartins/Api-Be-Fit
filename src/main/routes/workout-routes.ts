@@ -5,7 +5,7 @@ import WorkoutDeleteRouterComposer from '../composer/workout/workout-delete-comp
 import WorkoutListAllRouterComposer from '../composer/workout/workout-list-composer'
 
 module.exports = (router: Router) => {
-  router.post('/workout/create/', ExpressRouterAdapter.adapt(WorkoutCreateRouterComposer.composer()))
+  router.post('/workout/create', ExpressRouterAdapter.adapt(WorkoutCreateRouterComposer.composer()))
   router.delete('/workout/delete/:id', ExpressRouterAdapter.adapt(WorkoutDeleteRouterComposer.composer()))
   router.get('/workout/list/:id', ExpressRouterAdapter.adapt(WorkoutListAllRouterComposer.composer()))
 }
