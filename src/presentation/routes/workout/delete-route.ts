@@ -1,13 +1,13 @@
-import CreateHttpRequest from '../../../interface/video/video-httpRequest'
+import CreateHttpRequest from '../../../interface/workout/workout-httpbody'
 import WorkoutUseCaseInterface from '../../../interface/workout/workout-usecase'
 import response from '../../utils/responseBody'
 import Authenticate from '../../utils/Authenticate'
 
 export default class WorkoutDeleteRoute extends Authenticate {
   private workoutUseCase
-  constructor (videoUseCase: WorkoutUseCaseInterface) {
+  constructor (workoutUseCase: WorkoutUseCaseInterface) {
     super()
-    this.workoutUseCase = videoUseCase
+    this.workoutUseCase = workoutUseCase
   }
 
   async route (httpRequest: CreateHttpRequest) {
