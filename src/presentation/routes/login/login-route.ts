@@ -29,7 +29,9 @@ export default class LoginRoute {
 
       return {
         status: 200,
-        body: res
+        body: {
+          access_token: res
+        }
       }
     } catch (error) {
       return {
