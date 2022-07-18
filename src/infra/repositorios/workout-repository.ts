@@ -13,10 +13,16 @@ export default class WorkoutRepository {
   }
 
   async listAll (id: number) {
-    return await Workout.findAll({
-      where: { gymStudentId: id },
-      raw: true
-    })
+    const query = `
+      SELECT workout.*, 
+             video.url,
+             video.name
+      FROM workout
+      LEFT JOIN video ON video.category = workout.category
+      WHERE workout."gymStudentId" = ${id}
+    `
+    const [queryResult] = await Workout.sequelize.query(query)
+    return queryResult
   }
 
   async delete (id: number) {

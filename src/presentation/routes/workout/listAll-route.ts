@@ -1,4 +1,4 @@
-import CreateHttpRequest from '../../../interface/video/video-httpRequest'
+import CreateHttpRequest from '../../../interface/workout/workout-httpbody'
 import WorkoutUseCaseInterface from '../../../interface/workout/workout-usecase'
 import response from '../../utils/responseBody'
 import Authenticate from '../../utils/Authenticate'
