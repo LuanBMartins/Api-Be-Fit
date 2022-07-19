@@ -17,7 +17,7 @@ describe('Personal routes tests', () => {
     const personalData = {
       id: 1,
       name: 'Carlos Teste',
-      email: 'carlosteste@email.com',
+      email: 'carlostestee@email.com',
       password: '12345678@'
     }
 
