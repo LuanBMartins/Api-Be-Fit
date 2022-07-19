@@ -8,13 +8,11 @@ describe('Validate gym student tests', () => {
         email: 'carlos@email.com',
         password: 'password@',
         goals: 'Ganhar massa muscular',
-        personalId: 1
+        PersonalId: 1
       }
     }
 
     const { error, value } = schema.validate(httpRequest.body)
-
-    console.log(error)
 
     expect(error).toBe(null || undefined)
     expect(value).toEqual(httpRequest.body)
@@ -110,7 +108,7 @@ describe('Validate gym student tests', () => {
     }
 
     const { error } = schema.validate(httpRequest.body)
-    expect(error.details[0].message).toBe('"personalId" is required')
+    expect(error.details[0].message).toBe('"PersonalId" is required')
   })
 
   it('Should validate password with 8 characters', () => {
