@@ -44,9 +44,6 @@ export default class PersonalUseCase {
     if (!id) {
       throw new ErrorRes(500, 'invalid field id!')
     }
-    if (data.password && data.password.trim() === 0) {
-      throw new ErrorRes(500, 'Password can not be empty!')
-    }
 
     const dataPersonal = data.password
       ? {
