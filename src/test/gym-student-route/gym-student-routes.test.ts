@@ -34,6 +34,7 @@ describe('Gym student routes test', () => {
     const gymStudentUseCase = new GymStudentUseCase(gymStudentRepository, encrypter)
     const httpRequest = {
       body: {
+        id: 1,
         name: 'Eren Yeager',
         email: 'eren@email.com',
         password: '12345678@',
