@@ -23,7 +23,7 @@ describe('Login route test', () => {
     const personalData = {
       id: 1,
       name: 'Carlos Teste',
-      email: 'carlosteste@email.com',
+      email: 'carlostesteee@email.com',
       password: '12345678@'
     }
 
@@ -37,7 +37,7 @@ describe('Login route test', () => {
   it('Should login successfully', async () => {
     const httpRequest: HttpRequest = {
       body: {
-        email: 'carlosteste@email.com',
+        email: 'carlostesteee@email.com',
         password: '12345678@',
         useType: 'P'
       }

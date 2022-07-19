@@ -98,7 +98,6 @@ describe('Gym student routes test', () => {
       confirmed: false
     }
 
-    console.log(gymStudentFirst)
     const gymStudentSecond = {
       id: 2,
       name: 'Hatake Kakashi',
