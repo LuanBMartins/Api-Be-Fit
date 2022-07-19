@@ -3,7 +3,7 @@ import personalUseCaseInterface from '../../../interface/personal-usecase'
 import response from '../../utils/responseBody'
 import Authenticate from '../../utils/Authenticate'
 
-export default class PersonalLoadRoute extends Authenticate {
+export default class PersonalListRoute extends Authenticate {
   private personalUseCase
   constructor (personalUseCase: personalUseCaseInterface) {
     super()

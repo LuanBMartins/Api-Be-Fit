@@ -1,6 +1,7 @@
 import Joi from 'joi'
 
 const schema = Joi.object({
+  id: Joi.number().optional(),
   name: Joi.string().min(10).max(100).required().regex(/^[a-zA-Z .!?"-]+$/).message('Special character not permitted in the name'),
   email: Joi.string().email().required(),
   password: Joi.string().custom((value) => {
