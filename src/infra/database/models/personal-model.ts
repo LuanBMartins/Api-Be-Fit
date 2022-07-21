@@ -41,6 +41,4 @@ Personal.init(
   }
 )
 
-Personal.sync()
-
 export default Personal
